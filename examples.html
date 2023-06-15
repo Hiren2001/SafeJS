@@ -119,13 +119,15 @@
         }
 
         function decryptText() {
-            const encryptedInput = document.getElementById('encryptedText').value;
-            const keyInput = document.getElementById('encryptionKey').value;
-            const decryptedResult = document.getElementById('decryptedText');
+  const encryptedInput = document.getElementById('encryptedText').value;
+  const keyInput = document.getElementById('encryptionKey').value;
+  const decryptedResult = document.getElementById('decryptedText');
 
-            const decryptedText = Safe.decryptText(encryptedInput, parseInt(keyInput));
-            decryptedResult.textContent = decryptedText;
-        }
+  const sanitizedEncryptedInput = Safe.escapeHTML(encryptedInput);
+  const decryptedText = Safe.decryptText(sanitizedEncryptedInput, parseInt(keyInput));
+  decryptedResult.textContent = decryptedText;
+}
+
 
         function generateRandomString() {
             const lengthInput = document.getElementById('randomStringLength');
