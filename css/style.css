@@ -1,0 +1,27 @@
+body {
+            background-color: #2b2e33;
+            color: #F3F4F6;
+        }
+        .container {
+            max-width: 768px;
+        }
+        header, footer {
+            background-color: #1e1e1e;
+        }
+        .content {
+            background-color: #374151;
+        }
+        a {
+            color: #60A5FA;
+        }
+        a:hover {
+            color: #3B82F6;
+        }
+        pre {
+            background-color: #1e1e1e;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        code {
+            color: #9196a1;
+        }
