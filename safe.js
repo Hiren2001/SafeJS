@@ -47,7 +47,7 @@ const Safe = {
     decryptedText += String.fromCharCode(decryptedCharCode);
   }
   return decryptedText;
-}
+},
 
 
   generateRandomString: function(length) {
