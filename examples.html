@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe.js - Example Page</title>
+    <!-- Prism.js Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2b2e33;
+            color: #f3f4f6;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #f3f4f6;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            color: #9196a1;
+        }
+        input {
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #3b82f6;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2563eb;
+        }
+        .result {
+            margin-top: 10px;
+        }
+        .result.valid {
+            color: #4caf50;
+        }
+        .result.invalid {
+            color: #f44336;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
+    <script src="./safe.js"></script>
+</head>
+<body>
+    <h1>Safe.js - Example Page</h1>
+    <p>This page demonstrates the usage of Safe.js library for validation and security tasks.</p>
+
+    <section id="examples">
+        <h2>Examples</h2>
+
+        <h3>Example 1: Validating an Email</h3>
+        <p>Enter an email address and click the button to validate:</p>
+        <input type="email" id="email" placeholder="Enter email address">
+        <button onclick="validateEmail()">Validate Email</button>
+        <p id="emailResult" class="result"></p>
+
+        <h3>Example 2: Validating a Password</h3>
+        <p>Enter a password and click the button to validate:</p>
+        <input type="password" id="password" placeholder="Enter password">
+        <button onclick="validatePassword()">Validate Password</button>
+        <p id="passwordResult" class="result"></p>
+
+        <h3>Example 3: Validating a URL</h3>
+        <p>Enter a URL and click the button to validate:</p>
+        <input type="text" id="url" placeholder="Enter URL">
+        <button onclick="validateURL()">Validate URL</button>
+        <p id="urlResult" class="result"></p>
+
+        <h3>Example 4: Validating a Phone Number</h3>
+        <p>Enter a phone number and click the button to validate:</p>
+        <input type="tel" id="phoneNumber" placeholder="Enter phone number">
+        <button onclick="validatePhoneNumber()">Validate Phone Number</button>
+        <p id="phoneNumberResult" class="result"></p>
+
+        <h3>Example 5: Sanitizing HTML Input</h3>
+        <p>Enter HTML code and click the button to sanitize it:</p>
+        <textarea id="htmlInput" placeholder="Enter HTML code"></textarea>
+        <button onclick="sanitizeHTML()">Sanitize HTML</button>
+        <p id="htmlOutput"></p>
+
+        <h3>Example 6: Escaping HTML Characters</h3>
+        <p>Enter a string with HTML characters and click the button to escape them:</p>
+        <input type="text" id="htmlString" placeholder="Enter string">
+        <button onclick="escapeHTML()">Escape HTML</button>
+        <p id="escapedHTML"></p>
+    </section>
+
+    <script>
+        function validateEmail() {
+            var emailInput = document.getElementById('email');
+            var email = emailInput.value;
+
+            var isValidEmail = SafeJS.validateEmail(email);
+
+            var result = document.getElementById('emailResult');
+            result.textContent = isValidEmail ? 'Valid email address' : 'Invalid email address';
+            result.className = isValidEmail ? 'result valid' : 'result invalid';
+        }
+
+        function validatePassword() {
+            var passwordInput = document.getElementById('password');
+            var password = passwordInput.value;
+
+            var isValidPassword = SafeJS.validatePassword(password);
+
+            var result = document.getElementById('passwordResult');
+            result.textContent = isValidPassword ? 'Valid password' : 'Invalid password';
+            result.className = isValidPassword ? 'result valid' : 'result invalid';
+        }
+
+        function validateURL() {
+            var urlInput = document.getElementById('url');
+            var url = urlInput.value;
+
+            var isValidURL = SafeJS.validateURL(url);
+
+            var result = document.getElementById('urlResult');
+            result.textContent = isValidURL ? 'Valid URL' : 'Invalid URL';
+            result.className = isValidURL ? 'result valid' : 'result invalid';
+        }
+
+        function validatePhoneNumber() {
+            var phoneNumberInput = document.getElementById('phoneNumber');
+            var phoneNumber = phoneNumberInput.value;
+
+            var isValidPhoneNumber = SafeJS.validatePhoneNumber(phoneNumber);
+
+            var result = document.getElementById('phoneNumberResult');
+            result.textContent = isValidPhoneNumber ? 'Valid phone number' : 'Invalid phone number';
+            result.className = isValidPhoneNumber ? 'result valid' : 'result invalid';
+        }
+
+        function sanitizeHTML() {
+            var htmlInput = document.getElementById('htmlInput');
+            var htmlCode = htmlInput.value;
+
+            var sanitizedHTML = SafeJS.sanitizeHTML(htmlCode);
+
+            var htmlOutput = document.getElementById('htmlOutput');
+            htmlOutput.innerHTML = sanitizedHTML;
+        }
+
+        function escapeHTML() {
+            var htmlStringInput = document.getElementById('htmlString');
+            var htmlString = htmlStringInput.value;
+
+            var escapedHTML = SafeJS.escapeHTML(htmlString);
+
+            var escapedHTMLOutput = document.getElementById('escapedHTML');
+            escapedHTMLOutput.textContent = escapedHTML;
+        }
+    </script>
+</body>
+</html>
