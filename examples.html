@@ -106,7 +106,7 @@
             var emailInput = document.getElementById('email');
             var email = emailInput.value;
 
-            var isValidEmail = SafeJS.validateEmail(email);
+            var isValidEmail = Safe.validateEmail(email);
 
             var result = document.getElementById('emailResult');
             result.textContent = isValidEmail ? 'Valid email address' : 'Invalid email address';
@@ -117,7 +117,7 @@
             var passwordInput = document.getElementById('password');
             var password = passwordInput.value;
 
-            var isValidPassword = SafeJS.validatePassword(password);
+            var isValidPassword = Safe.validatePassword(password);
 
             var result = document.getElementById('passwordResult');
             result.textContent = isValidPassword ? 'Valid password' : 'Invalid password';
@@ -128,7 +128,7 @@
             var urlInput = document.getElementById('url');
             var url = urlInput.value;
 
-            var isValidURL = SafeJS.validateURL(url);
+            var isValidURL = Safe.validateURL(url);
 
             var result = document.getElementById('urlResult');
             result.textContent = isValidURL ? 'Valid URL' : 'Invalid URL';
@@ -139,7 +139,7 @@
             var phoneNumberInput = document.getElementById('phoneNumber');
             var phoneNumber = phoneNumberInput.value;
 
-            var isValidPhoneNumber = SafeJS.validatePhoneNumber(phoneNumber);
+            var isValidPhoneNumber = Safe.validatePhoneNumber(phoneNumber);
 
             var result = document.getElementById('phoneNumberResult');
             result.textContent = isValidPhoneNumber ? 'Valid phone number' : 'Invalid phone number';
@@ -150,7 +150,7 @@
             var htmlInput = document.getElementById('htmlInput');
             var htmlCode = htmlInput.value;
 
-            var sanitizedHTML = SafeJS.sanitizeHTML(htmlCode);
+            var sanitizedHTML = Safe.sanitizeHTML(htmlCode);
 
             var htmlOutput = document.getElementById('htmlOutput');
             htmlOutput.innerHTML = sanitizedHTML;
@@ -160,7 +160,7 @@
             var htmlStringInput = document.getElementById('htmlString');
             var htmlString = htmlStringInput.value;
 
-            var escapedHTML = SafeJS.escapeHTML(htmlString);
+            var escapedHTML = Safe.escapeHTML(htmlString);
 
             var escapedHTMLOutput = document.getElementById('escapedHTML');
             escapedHTMLOutput.textContent = escapedHTML;
