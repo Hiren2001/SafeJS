@@ -5,7 +5,6 @@ const Safe = {
   },
 
   validatePassword: function(password) {
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[a-zA-Z0-9!@#$%^&*()_+]{8,}$/;
     return passwordRegex.test(password);
   },
 
@@ -15,18 +14,23 @@ const Safe = {
   },
 
   validatePhoneNumber: function(phoneNumber) {
-    const phoneRegex = /^\+?\d{1,3}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3,4}$/;
+    const phoneRegex = /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/;
     return phoneRegex.test(phoneNumber);
   },
 
   sanitizeInput: function(input) {
-    const sanitizedInput = input.replace(/[<>]/g, '&amp;');
+    const sanitizedInput = input.replace(/[<>"'&/]/g, (match) => {
+      const htmlEntities = {
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#x27;',
+        '&': '&amp;',
+        '/': '&#x2F;'
+      };
+      return htmlEntities[match];
+    });
     return sanitizedInput;
-  },
-
-  escapeHTML: function(html) {
-    const escapedHTML = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    return escapedHTML;
   },
 
   encryptText: function(text, key) {
@@ -40,15 +44,14 @@ const Safe = {
   },
 
   decryptText: function(encryptedText, key) {
-  let decryptedText = '';
-  for (let i = 0; i < encryptedText.length; i++) {
-    const charCode = encryptedText.charCodeAt(i);
-    const decryptedCharCode = charCode - key;
-    decryptedText += String.fromCharCode(decryptedCharCode);
-  }
-  return decryptedText;
-},
-
+    let decryptedText = '';
+    for (let i = 0; i < encryptedText.length; i++) {
+      const charCode = encryptedText.charCodeAt(i);
+      const decryptedCharCode = charCode - key;
+      decryptedText += String.fromCharCode(decryptedCharCode);
+    }
+    return decryptedText;
+  },
 
   generateRandomString: function(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
