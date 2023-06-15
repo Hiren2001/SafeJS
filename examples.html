@@ -128,7 +128,7 @@
             var urlInput = document.getElementById('url');
             var url = urlInput.value;
 
-            var isValidURL = SafeJS.validateURL(url);
+            var isValidURL = Safe.validateURL(url);
 
             var result = document.getElementById('urlResult');
             result.textContent = isValidURL ? 'Valid URL' : 'Invalid URL';
@@ -139,7 +139,7 @@
             var phoneNumberInput = document.getElementById('phoneNumber');
             var phoneNumber = phoneNumberInput.value;
 
-            var isValidPhoneNumber = SafeJS.validatePhoneNumber(phoneNumber);
+            var isValidPhoneNumber = Safe.validatePhoneNumber(phoneNumber);
 
             var result = document.getElementById('phoneNumberResult');
             result.textContent = isValidPhoneNumber ? 'Valid phone number' : 'Invalid phone number';
@@ -150,7 +150,7 @@
             var htmlInput = document.getElementById('htmlInput');
             var htmlCode = htmlInput.value;
 
-            var sanitizedHTML = Safe.sanitizeHTML(htmlCode);
+            var sanitizedHTML = Safe.sanitizeInput(htmlCode);
 
             var htmlOutput = document.getElementById('htmlOutput');
             htmlOutput.innerHTML = sanitizedHTML;
