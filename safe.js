@@ -40,14 +40,15 @@ const Safe = {
   },
 
   decryptText: function(encryptedText, key) {
-    let decryptedText = '';
-    for (let i = 0; i < encryptedText.length; i++) {
-      const charCode = encryptedText.charCodeAt(i);
-      const decryptedCharCode = charCode - key;
-      decryptedText += String.fromCharCode(decryptedCharCode);
-    }
-    return decryptedText;
-  },
+  let decryptedText = '';
+  for (let i = 0; i < encryptedText.length; i++) {
+    const charCode = encryptedText.charCodeAt(i);
+    const decryptedCharCode = charCode - key;
+    decryptedText += String.fromCharCode(decryptedCharCode);
+  }
+  return decryptedText;
+}
+
 
   generateRandomString: function(length) {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
