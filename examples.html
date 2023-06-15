@@ -56,6 +56,101 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
     <script src="./safe.js"></script>
+    <script>
+        function validateEmail() {
+            const emailInput = document.getElementById('email');
+            const emailResult = document.getElementById('emailResult');
+
+            const isValid = Safe.validateEmail(emailInput.value);
+            emailResult.textContent = isValid ? 'Valid email address' : 'Invalid email address';
+            emailResult.className = isValid ? 'result valid' : 'result invalid';
+        }
+
+        function validatePassword() {
+            const passwordInput = document.getElementById('password');
+            const passwordResult = document.getElementById('passwordResult');
+
+            const isValid = Safe.validatePassword(passwordInput.value);
+            passwordResult.textContent = isValid ? 'Valid password' : 'Invalid password';
+            passwordResult.className = isValid ? 'result valid' : 'result invalid';
+        }
+
+        function validateURL() {
+            const urlInput = document.getElementById('url');
+            const urlResult = document.getElementById('urlResult');
+
+            const isValid = Safe.validateURL(urlInput.value);
+            urlResult.textContent = isValid ? 'Valid URL' : 'Invalid URL';
+            urlResult.className = isValid ? 'result valid' : 'result invalid';
+        }
+
+        function validatePhoneNumber() {
+            const phoneNumberInput = document.getElementById('phoneNumber');
+            const phoneNumberResult = document.getElementById('phoneNumberResult');
+
+            const isValid = Safe.validatePhoneNumber(phoneNumberInput.value);
+            phoneNumberResult.textContent = isValid ? 'Valid phone number' : 'Invalid phone number';
+            phoneNumberResult.className = isValid ? 'result valid' : 'result invalid';
+        }
+
+        function sanitizeInput() {
+            const input = document.getElementById('input');
+            const sanitizedResult = document.getElementById('sanitizedInput');
+
+            const sanitizedInput = Safe.sanitizeInput(input.value);
+            sanitizedResult.textContent = sanitizedInput;
+        }
+
+        function escapeHTML() {
+            const htmlStringInput = document.getElementById('htmlString');
+            const escapedResult = document.getElementById('escapedHTML');
+
+            const escapedHTML = Safe.escapeHTML(htmlStringInput.value);
+            escapedResult.textContent = escapedHTML;
+        }
+
+        function encryptText() {
+            const plaintextInput = document.getElementById('plaintext');
+            const keyInput = document.getElementById('encryptionKey');
+            const encryptedResult = document.getElementById('encryptedText');
+
+            const encryptedText = Safe.encryptText(plaintextInput.value, parseInt(keyInput.value));
+            encryptedResult.textContent = encryptedText;
+        }
+
+        function decryptText() {
+            const encryptedInput = document.getElementById('encryptedText');
+            const keyInput = document.getElementById('encryptionKey');
+            const decryptedResult = document.getElementById('decryptedText');
+
+            const decryptedText = Safe.decryptText(encryptedInput.value, parseInt(keyInput.value));
+            decryptedResult.textContent = decryptedText;
+        }
+
+        function generateRandomString() {
+            const lengthInput = document.getElementById('randomStringLength');
+            const randomStringResult = document.getElementById('randomString');
+
+            const randomString = Safe.generateRandomString(parseInt(lengthInput.value));
+            randomStringResult.textContent = randomString;
+        }
+
+        function capitalizeString() {
+            const stringInput = document.getElementById('stringToCapitalize');
+            const capitalizedResult = document.getElementById('capitalizedString');
+
+            const capitalizedString = Safe.capitalizeString(stringInput.value);
+            capitalizedResult.textContent = capitalizedString;
+        }
+
+        function reverseString() {
+            const stringInput = document.getElementById('stringToReverse');
+            const reversedResult = document.getElementById('reversedString');
+
+            const reversedString = Safe.reverseString(stringInput.value);
+            reversedResult.textContent = reversedString;
+        }
+    </script>
 </head>
 <body>
     <h1>Safe.js - Example Page</h1>
@@ -89,82 +184,53 @@
         <p id="phoneNumberResult" class="result"></p>
 
         <h3>Example 5: Sanitizing HTML Input</h3>
-        <p>Enter HTML code and click the button to sanitize it:</p>
-        <textarea id="htmlInput" placeholder="Enter HTML code"></textarea>
-        <button onclick="sanitizeHTML()">Sanitize HTML</button>
-        <p id="htmlOutput"></p>
+        <p>Enter HTML code and click the button to sanitize:</p>
+        <input type="text" id="input" placeholder="Enter HTML code">
+        <button onclick="sanitizeInput()">Sanitize Input</button>
+        <p id="sanitizedInput" class="result"></p>
 
-        <h3>Example 6: Escaping HTML Characters</h3>
-        <p>Enter a string with HTML characters and click the button to escape them:</p>
-        <input type="text" id="htmlString" placeholder="Enter string">
+        <h3>Example 6: Escaping HTML</h3>
+        <p>Enter a string with HTML tags and click the button to escape:</p>
+        <input type="text" id="htmlString" placeholder="Enter string with HTML tags">
         <button onclick="escapeHTML()">Escape HTML</button>
-        <p id="escapedHTML"></p>
+        <p id="escapedHTML" class="result"></p>
+
+        <h3>Example 7: Encrypting Text</h3>
+        <p>Enter a plaintext and encryption key, then click the button to encrypt:</p>
+        <input type="text" id="plaintext" placeholder="Enter plaintext">
+        <input type="number" id="encryptionKey" placeholder="Enter encryption key">
+        <button onclick="encryptText()">Encrypt Text</button>
+        <p id="encryptedText" class="result"></p>
+
+        <h3>Example 8: Decrypting Text</h3>
+        <p>Enter an encrypted text and encryption key, then click the button to decrypt:</p>
+        <input type="text" id="encryptedText" placeholder="Enter encrypted text">
+        <input type="number" id="encryptionKey" placeholder="Enter encryption key">
+        <button onclick="decryptText()">Decrypt Text</button>
+        <p id="decryptedText" class="result"></p>
+
+        <h3>Example 9: Generating Random String</h3>
+        <p>Enter the length of the random string and click the button to generate:</p>
+        <input type="number" id="randomStringLength" placeholder="Enter string length">
+        <button onclick="generateRandomString()">Generate Random String</button>
+        <p id="randomString" class="result"></p>
+
+        <h3>Example 10: Capitalizing a String</h3>
+        <p>Enter a string and click the button to capitalize it:</p>
+        <input type="text" id="stringToCapitalize" placeholder="Enter a string">
+        <button onclick="capitalizeString()">Capitalize String</button>
+        <p id="capitalizedString" class="result"></p>
+
+        <h3>Example 11: Reversing a String</h3>
+        <p>Enter a string and click the button to reverse it:</p>
+        <input type="text" id="stringToReverse" placeholder="Enter a string">
+        <button onclick="reverseString()">Reverse String</button>
+        <p id="reversedString" class="result"></p>
     </section>
 
     <script>
-        function validateEmail() {
-            var emailInput = document.getElementById('email');
-            var email = emailInput.value;
-
-            var isValidEmail = Safe.validateEmail(email);
-
-            var result = document.getElementById('emailResult');
-            result.textContent = isValidEmail ? 'Valid email address' : 'Invalid email address';
-            result.className = isValidEmail ? 'result valid' : 'result invalid';
-        }
-
-        function validatePassword() {
-            var passwordInput = document.getElementById('password');
-            var password = passwordInput.value;
-
-            var isValidPassword = Safe.validatePassword(password);
-
-            var result = document.getElementById('passwordResult');
-            result.textContent = isValidPassword ? 'Valid password' : 'Invalid password';
-            result.className = isValidPassword ? 'result valid' : 'result invalid';
-        }
-
-        function validateURL() {
-            var urlInput = document.getElementById('url');
-            var url = urlInput.value;
-
-            var isValidURL = Safe.validateURL(url);
-
-            var result = document.getElementById('urlResult');
-            result.textContent = isValidURL ? 'Valid URL' : 'Invalid URL';
-            result.className = isValidURL ? 'result valid' : 'result invalid';
-        }
-
-        function validatePhoneNumber() {
-            var phoneNumberInput = document.getElementById('phoneNumber');
-            var phoneNumber = phoneNumberInput.value;
-
-            var isValidPhoneNumber = Safe.validatePhoneNumber(phoneNumber);
-
-            var result = document.getElementById('phoneNumberResult');
-            result.textContent = isValidPhoneNumber ? 'Valid phone number' : 'Invalid phone number';
-            result.className = isValidPhoneNumber ? 'result valid' : 'result invalid';
-        }
-
-        function sanitizeHTML() {
-            var htmlInput = document.getElementById('htmlInput');
-            var htmlCode = htmlInput.value;
-
-            var sanitizedHTML = Safe.sanitizeInput(htmlCode);
-
-            var htmlOutput = document.getElementById('htmlOutput');
-            htmlOutput.innerHTML = sanitizedHTML;
-        }
-
-        function escapeHTML() {
-            var htmlStringInput = document.getElementById('htmlString');
-            var htmlString = htmlStringInput.value;
-
-            var escapedHTML = Safe.escapeHTML(htmlString);
-
-            var escapedHTMLOutput = document.getElementById('escapedHTML');
-            escapedHTMLOutput.textContent = escapedHTML;
-        }
+        // Syntax highlighting with Prism.js
+        Prism.highlightAll();
     </script>
 </body>
 </html>
