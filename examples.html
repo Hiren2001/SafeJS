@@ -150,7 +150,7 @@
             var htmlInput = document.getElementById('htmlInput');
             var htmlCode = htmlInput.value;
 
-            var sanitizedHTML = Safe.sanitizeHTML(htmlCode);
+            var sanitizedHTML = Safe.sanitizeInput(htmlCode);
 
             var htmlOutput = document.getElementById('htmlOutput');
             htmlOutput.innerHTML = sanitizedHTML;
