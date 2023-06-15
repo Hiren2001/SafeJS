@@ -5,6 +5,7 @@ const Safe = {
   },
 
   validatePassword: function(password) {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+])[a-zA-Z0-9!@#$%^&*()_+]{8,}$/;
     return passwordRegex.test(password);
   },
 
@@ -14,23 +15,18 @@ const Safe = {
   },
 
   validatePhoneNumber: function(phoneNumber) {
-    const phoneRegex = /^\+?\d{1,3}[-.\s]?\(?\d{1,3}\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}$/;
+    const phoneRegex = /^\+?\d{1,3}[-.\s]?\(?\d{3}\)?[-.\s]?\d{3,4}$/;
     return phoneRegex.test(phoneNumber);
   },
 
   sanitizeInput: function(input) {
-    const sanitizedInput = input.replace(/[<>"'&/]/g, (match) => {
-      const htmlEntities = {
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#x27;',
-        '&': '&amp;',
-        '/': '&#x2F;'
-      };
-      return htmlEntities[match];
-    });
+    const sanitizedInput = input.replace(/[<>]/g, '&amp;');
     return sanitizedInput;
+  },
+
+  escapeHTML: function(html) {
+    const escapedHTML = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    return escapedHTML;
   },
 
   encryptText: function(text, key) {
