@@ -123,10 +123,16 @@
   const keyInput = document.getElementById('encryptionKey').value;
   const decryptedResult = document.getElementById('decryptedText');
 
+  // Sanitize the encrypted input
   const sanitizedEncryptedInput = Safe.escapeHTML(encryptedInput);
+
+  // Decrypt the text
   const decryptedText = Safe.decryptText(sanitizedEncryptedInput, parseInt(keyInput));
+
+  // Display the decrypted text
   decryptedResult.textContent = decryptedText;
 }
+
 
 
         function generateRandomString() {
@@ -207,9 +213,10 @@
         <h3>Example 8: Decrypting Text</h3>
         <p>Enter an encrypted text and encryption key, then click the button to decrypt:</p>
         <input type="text" id="encryptedText" placeholder="Enter encrypted text">
-        <input type="number" id="encryptionKey" placeholder="Enter encryption key">
-        <button onclick="decryptText()">Decrypt Text</button>
-        <p id="decryptedText" class="result"></p>
+<input type="number" id="encryptionKey" placeholder="Enter encryption key">
+<button id="decryptText">Decrypt Text</button>
+<p id="decryptedText" class="result"></p>
+
         
         <h3>Example 9: Generating Random String</h3>
         <p>Enter the length of the random string and click the button to generate:</p>
