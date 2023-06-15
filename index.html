@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe.js - Validation and Security Library</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Prism.js -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" rel="stylesheet">
+    <link href="./css/styles.css" rel="stylesheet">
+</head>
+<body>
+        <header class="py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <h1 class="text-3xl font-bold">Safe.js - Validation and Security Library</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#usage">Usage</a></li>
+                    <li><a href="#api-reference">API Reference</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#contributing">Contributing</a></li>
+                    <li><a href="#license">License</a></li>
+                </ul>
+            </nav>
+            <a href="https://github.com/Hiren2001/SafeJS" target="_blank" rel="noopener" class="flex items-center space-x-2">
+                <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub Logo" class="w-6 h-6">
+                <span>GitHub Repository</span>
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section id="overview">
+            <h2 class="text-2xl font-bold mb-4">Overview</h2>
+            <p>Safe.js is a JavaScript library that provides a set of functions for validation and security purposes. It offers methods to validate email addresses, passwords, URLs, and phone numbers. Additionally, it includes utility functions for input sanitization, text encryption and decryption, generating random strings, capitalizing strings, and reversing strings.</p>
+        </section>
+
+        <section id="installation" class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Installation</h2>
+            <p>To use Safe.js, you can download the library from the <a href="https://github.com/Hiren2001/SafeJS">GitHub repository</a>.</p>
+        </section>
+
+        <section id="usage" class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Usage</h2>
+            <p>To use Safe.js in your JavaScript project, include the library file in your HTML:</p>
+            <pre><code class="language-html">&lt;script src="path/to/safe.js">&lt;/script></code></pre>
+            <p>Then, you can call the desired validation or utility functions:</p>
+            <pre><code class="language-javascript">const email = 'test@example.com';
+const isValidEmail = Safe.validateEmail(email);
+console.log(isValidEmail); // true</code></pre>
+        </section>
+
+        <section id="api-reference" class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">API Reference</h2>
+            <p>Safe.js provides the following methods:</p>
+            <ul>
+                <li><code>validateEmail(email: string): boolean</code> - Validates an email address.</li>
+                <li><code>validatePassword(password: string): boolean</code> - Validates a password.</li>
+                <li><code>validateURL(url: string): boolean</code> - Validates a URL.</li>
+                <li><code>validatePhoneNumber(phoneNumber: string): boolean</code> - Validates a phone number.</li>
+                <li><code>sanitizeInput(input: string): string</code> - Sanitizes user input by replacing HTML entities.</li>
+                <li><code>encryptText(text: string, key: number): string</code> - Encrypts text using a key.</li>
+                <li><code>decryptText(encryptedText: string, key: number): string</code> - Decrypts encrypted text using a key.</li>
+                <li><code>generateRandomString(length: number): string</code> - Generates a random string of the specified length.</li>
+                <li><code>capitalizeString(str: string): string</code> - Capitalizes the first letter of a string.</li>
+                <li><code>reverseString(str: string): string</code> - Reverses a string.</li>
+            </ul>
+        </section>
+
+        <section id="examples" class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Examples</h2>
+            <p>Here are a few examples to demonstrate the usage of Safe.js:</p>
+            <h3 class="text-xl font-bold mb-2">Example 1: Validating an Email</h3>
+            <pre><code class="language-javascript">const email = 'test@example.com';
+const isValidEmail = Safe.validateEmail(email);
+console.log(isValidEmail); // true</code></pre>
+
+            <h3 class="text-xl font-bold mb-2">Example 2: Encrypting and Decrypting Text</h3>
+            <pre><code class="language-javascript">const text = 'Hello, World!';
+const key = 5;
+const encryptedText = Safe.encryptText(text, key);
+console.log(encryptedText); // 'Mjqqt, Btwqi!'
+const decryptedText = Safe.decryptText(encryptedText, key);
+console.log(decryptedText); // 'Hello, World!'</code></pre>
+
+            <h3 class="text-xl font-bold mb-2">Example 3: Generating a Random String</h3>
+            <pre><code class="language-javascript">const randomString = Safe.generateRandomString(10);
+console.log(randomString); // '8S0YzMb2kV'</code></pre>
+        </section>
+
+        <section id="contributing" class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">Contributing</h2>
+            <p>Contributions are welcome! If you find any issues or have suggestions for improvement, please submit a pull request on the <a href="https://github.com/Hiren2001/SafeJS">GitHub repository</a>.</p>
+        </section>
+
+        <section id="license" class="mt-8">
+            <h2 class="text-2xl font-bold mb-4">License</h2>
+            <p>Safe.js is released under the MIT License. See the <a href="https://github.com/Hiren2001/SafeJS/blob/main/LICENSE">LICENSE</a> file for more details.</p>
+        </section>
+    </main>
+
+    <footer class="py-4">
+        <div class="container mx-auto px-4 flex items-center justify-center">
+            <p>&copy; Hiren Rathod</p>
+        </div>
+    </footer>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
