@@ -55,7 +55,7 @@
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
-    <script src="./safe.js"></script>
+    <script src="./safe.js" type="module"></script>
 </head>
 <body>
     <h1>Safe.js - Example Page</h1>
@@ -84,7 +84,7 @@
 
         <h3>Example 4: Validating a Phone Number</h3>
         <p>Enter a phone number and click the button to validate:</p>
-        <input type="tel" id="phoneNumber" placeholder="Enter phone number">
+        <input type="text" id="phoneNumber" placeholder="Enter phone number">
         <button onclick="validatePhoneNumber()">Validate Phone Number</button>
         <p id="phoneNumberResult" class="result"></p>
 
@@ -150,7 +150,7 @@
             var htmlInput = document.getElementById('htmlInput');
             var htmlCode = htmlInput.value;
 
-            var sanitizedHTML = Safe.sanitizeHTML(htmlCode);
+            var sanitizedHTML = Safe.sanitizeInput(htmlCode);
 
             var htmlOutput = document.getElementById('htmlOutput');
             htmlOutput.innerHTML = sanitizedHTML;
@@ -160,7 +160,7 @@
             var htmlStringInput = document.getElementById('htmlString');
             var htmlString = htmlStringInput.value;
 
-            var escapedHTML = Safe.escapeHTML(htmlString);
+            var escapedHTML = Safe.sanitizeInput(htmlString);
 
             var escapedHTMLOutput = document.getElementById('escapedHTML');
             escapedHTMLOutput.textContent = escapedHTML;
