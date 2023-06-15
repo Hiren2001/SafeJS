@@ -6,56 +6,10 @@
     <title>Safe.js - Example Page</title>
     <!-- Prism.js Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #2b2e33;
-            color: #f3f4f6;
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        p {
-            margin-bottom: 10px;
-        }
-        pre {
-            background-color: #1e1e1e;
-            color: #f3f4f6;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-        }
-        code {
-            color: #9196a1;
-        }
-        input {
-            margin-bottom: 10px;
-        }
-        button {
-            padding: 8px 16px;
-            background-color: #3b82f6;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #2563eb;
-        }
-        .result {
-            margin-top: 10px;
-        }
-        .result.valid {
-            color: #4caf50;
-        }
-        .result.invalid {
-            color: #f44336;
-        }
-    </style>
+    <link href="./css/example.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
-    <script src="https://safe.js.org/safe.js"></script>
+    <script src="./safe.js"></script>
     <script>
         function validateEmail() {
             const emailInput = document.getElementById('email');
