@@ -34,6 +34,21 @@ const Safe = {
     return sanitizedInput;
   },
 
+  escapeHTML: function(html) {
+    const htmlEntities = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      '/': '&#x2F;'
+    };
+
+    const escapedHTML = html.replace(/[&<>"'/]/g, (match) => htmlEntities[match]);
+    return escapedHTML;
+  },
+
+
   encryptText: function(text, key) {
     let encryptedText = '';
     for (let i = 0; i < text.length; i++) {
