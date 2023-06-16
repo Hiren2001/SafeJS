@@ -36,12 +36,12 @@ const Safe = {
 
   escapeHTML: function(html) {
     const htmlEntities = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#x27;',
-      '/': '&#x2F;'
+      '&amp;': '&',
+      '&lt;': '<',
+      '&gt;': '>',
+      '&quot;': '"',
+      "&#x27;": ''',
+      '&#x2F;': '/'
     };
 
     const escapedHTML = html.replace(/[&<>"'/]/g, (match) => htmlEntities[match]);
