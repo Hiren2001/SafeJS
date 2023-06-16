@@ -60,11 +60,11 @@
         }
 
         function decryptText() {
-            const encryptedInput = document.getElementById('encryptText');
-            const keyInput = document.getElementById('encryptionKey');
+            const encryptedInput = document.getElementById('encryptText').value;
+            const keyInput = document.getElementById('encryptionKey').value;
             const decryptedResult = document.getElementById('decryptedText');
 
-            const decryptedText = Safe.decryptText(encryptedInput.value, parseInt(keyInput.value));
+            const decryptedText = Safe.decryptText(encryptedInput, parseInt(keyInput));
             decryptedResult.textContent = decryptedText;
         }
         
