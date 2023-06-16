@@ -35,18 +35,18 @@ const Safe = {
   },
 
   escapeHTML: function(html) {
-    const htmlEntities = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#x27;',
-      '/': '&#x2F;'
-    };
+  const htmlEntities = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;',
+  };
 
-    const escapedHTML = html.replace(/[&amp;&lt;&gt;&quot;&#x27;&#x2F;]/g, (match) => htmlEntities[match]);
-    return escapedHTML;
-  },
+  const escapedHTML = html.replace(/[&<>"']/g, (match) => htmlEntities[match]);
+  return escapedHTML;
+}
+
 
   encryptText: function(text, key) {
     let encryptedText = '';
