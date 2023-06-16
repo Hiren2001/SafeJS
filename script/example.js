@@ -60,7 +60,7 @@
         }
 
         function decryptText() {
-            const encryptedInput = document.getElementById('encryptedText');
+            const encryptedInput = document.getElementById('encryptText');
             const keyInput = document.getElementById('encryptionKey');
             const decryptedResult = document.getElementById('decryptedText');
 
