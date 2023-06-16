@@ -35,19 +35,14 @@ const Safe = {
   },
 
   escapeHTML: function(html) {
-    const htmlEntities = {
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#x27;',
-      '/': '&#x2F;'
-    };
-
-    const escapedHTML = html.replace(/[&<>"'/]/g, (match) => htmlEntities[match]);
+  const escapedHTML = html.replace(/&/g, '&amp;')
+                          .replace(/</g, '&lt;')
+                          .replace(/>/g, '&gt;')
+                          .replace(/"/g, '&quot;')
+                          .replace(/'/g, '&#x27;')
+                          .replace(/\//g, '&#x2F;');
     return escapedHTML;
   },
-
 
   encryptText: function(text, key) {
     let encryptedText = '';
