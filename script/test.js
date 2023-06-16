@@ -35,7 +35,7 @@ const Safe = {
   },
 
   escapeHTML: function(html) {
-    const htmlEntities = {
+    const htmlEntitie = {
       '&': '&amp;',
       '<': '&lt;',
       '>': '&gt;',
@@ -44,7 +44,7 @@ const Safe = {
       '/': '&#x2F;'
     };
 
-    const escapedHTML = html.replace(/[&<>"'\/]/g, (match) => htmlEntities[match]);
+    const escapedHTML = html.replace(/[&<>"'\/]/g, (match) => htmlEntitie[match]);
     return escapedHTML;
   },
 
