@@ -35,12 +35,16 @@ const Safe = {
   },
 
   escapeHTML: function(html) {
-  const escapedHTML = html.replace(/&/g, '&amp;')
-                          .replace(/</g, '&lt;')
-                          .replace(/>/g, '&gt;')
-                          .replace(/"/g, '&quot;')
-                          .replace(/'/g, '&#x27;')
-                          .replace(/\//g, '&#x2F;');
+    const htmlEntities = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#x27;',
+      '/': '&#x2F;'
+    };
+
+    const escapedHTML = html.replace(/[&amp;&lt;&gt;&quot;&#x27;&#x2F;]/g, (match) => htmlEntities[match]);
     return escapedHTML;
   },
 
