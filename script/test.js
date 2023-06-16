@@ -44,7 +44,7 @@ const Safe = {
       '/': '&#x2F;'
     };
 
-    const escapedHTML = html.replace(/[&amp;&lt;&gt;&quot;&#x27;&#x2F;]/g, (match) => htmlEntities[match]);
+    const escapedHTML = html.replace(/[&<>"'/]/g, (match) => htmlEntities[match]);
     return escapedHTML;
   },
 
