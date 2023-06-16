@@ -44,10 +44,10 @@ const Safe = {
     return encryptedText;
   },
 
-  decryptText: function(encryptedText, key) {
+  decryptText: function(encryptText, key) {
     let decryptedText = '';
-    for (let i = 0; i < encryptedText.length; i++) {
-      const charCode = encryptedText.charCodeAt(i);
+    for (let i = 0; i < encryptText.length; i++) {
+      const charCode = encryptText.charCodeAt(i);
       const decryptedCharCode = charCode - key;
       decryptedText += String.fromCharCode(decryptedCharCode);
     }
