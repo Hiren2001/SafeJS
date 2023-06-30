@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /css/
+Disallow: /script/
+
+Allow: /index.html
+Allow: /examples.html
+Allow: /README.md
+Allow: /SafeJS.png
