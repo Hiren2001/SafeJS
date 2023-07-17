@@ -1,0 +1,22 @@
+{
+  "name": "safejslib",
+  "version": "1.0.1",
+  "description": "Safe.js is a secure JavaScript library for data validation and manipulation. It offers functions to validate inputs like email, password, URL, and phone number, sanitize HTML, escape characters, encrypt/decrypt text, generate random strings, and manipulate strings. With a focus on security, it helps prevent vulnerabilities and ensures reliable data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm safejslib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hiren2001/SafeJS.git"
+  },
+  "keywords": [
+    "SafeJS"
+  ],
+  "author": "Hiren Rathod",
+  "license": "MIT ",
+  "bugs": {
+    "url": "https://github.com/Hiren2001/SafeJS/issues"
+  },
+  "homepage": "https://safe.js.org"
+}
